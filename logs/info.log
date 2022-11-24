@@ -1,0 +1,8 @@
+[2022-11-23 18:18:27 c.p.a.A.Aurora AuroraBot INFO]: 欢迎使用AuroraBot
+[2022-11-23 18:18:50 c.p.a.A.Aurora Executor INFO]: 
+AuroraBot 指令帮助:
+	ab [help]: 			查看当前页面
+	ab version|ver|info|i: 	查看当前软件信息
+	ab stop|shutdown|sd: 		安全停止软件
+	ab reload|restart|re: 		重新加载插件和配置文件
+	ab plugin|plug|pl: 		查看插件管理帮助
