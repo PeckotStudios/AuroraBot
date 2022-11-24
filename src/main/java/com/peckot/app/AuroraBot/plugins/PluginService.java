@@ -5,7 +5,10 @@ import com.peckot.app.AuroraBot.exceptions.PluginConfigNotFoundException;
 import me.zhenxin.qqbot.api.ApiManager;
 import org.slf4j.Logger;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
 import java.util.Properties;
 import java.util.jar.JarFile;

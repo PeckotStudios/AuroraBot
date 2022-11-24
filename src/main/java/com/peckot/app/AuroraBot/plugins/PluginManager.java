@@ -1,7 +1,9 @@
 package com.peckot.app.AuroraBot.plugins;
 
 import com.peckot.app.AuroraBot.Aurora;
-import com.peckot.app.AuroraBot.exceptions.*;
+import com.peckot.app.AuroraBot.exceptions.PluginAlreadyLoadedException;
+import com.peckot.app.AuroraBot.exceptions.PluginFileNotFoundException;
+import com.peckot.app.AuroraBot.exceptions.PluginLoadedNotFoundException;
 import me.zhenxin.qqbot.core.BotCore;
 import me.zhenxin.qqbot.websocket.EventHandler;
 import org.jetbrains.annotations.NotNull;

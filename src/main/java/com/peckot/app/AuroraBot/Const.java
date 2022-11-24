@@ -1,11 +1,13 @@
 package com.peckot.app.AuroraBot;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.*;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Properties;
 import java.util.jar.JarFile;
 
 public class Const {
