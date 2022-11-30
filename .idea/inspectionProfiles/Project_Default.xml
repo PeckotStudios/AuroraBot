@@ -36,6 +36,8 @@
       <option name="excludeList">
         <list>
           <option value="org.springframework:spring-beans" />
+          <option value="org.openjfx:javafx-controls" />
+          <option value="org.openjfx:javafx-fxml" />
         </list>
       </option>
     </inspection_tool>

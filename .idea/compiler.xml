@@ -7,7 +7,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AuroraBot" />
+        <module name="AuroraCore" />
+        <module name="CorpusScript" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />

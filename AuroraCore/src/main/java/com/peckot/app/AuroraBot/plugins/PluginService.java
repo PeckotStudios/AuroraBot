@@ -5,10 +5,7 @@ import com.peckot.app.AuroraBot.exceptions.PluginConfigNotFoundException;
 import me.zhenxin.qqbot.api.ApiManager;
 import org.slf4j.Logger;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Date;
 import java.util.Properties;
 import java.util.jar.JarFile;
@@ -32,6 +29,10 @@ public abstract class PluginService {
 
     public final Properties getConfig() {
         return config;
+    }
+
+    public final File getPluginDir() {
+        return new File(Aurora.getPluginManager().getPlugin(this).getFolder());
     }
 
     public final void saveDefaultConfig() {
@@ -65,6 +66,36 @@ public abstract class PluginService {
             config.store(new FileOutputStream(pluginConfigFile), new Date().toString());
         } catch (IOException e) {
             log.error("保存配置文件失败，请检查文件权限！", e);
+        }
+    }
+
+    public final void saveResources(String file) {
+        Plugin plugin = Aurora.getPluginManager().getPlugin(this);
+        try {
+            InputStream resResourceIS = this.getClass().getResourceAsStream("/" + file);
+            File desResourceFile = new File(plugin.getFolder() + "/" + file);
+            if (null == resResourceIS) {
+                log.error("无法保存插件" + plugin.getName() + "的资源文件：" + file + "！");
+                return;
+            }
+            if (!desResourceFile.exists()) {
+                File desResourceDir = new File(plugin.getFolder() + "/" + file.substring(0, file.lastIndexOf("/")));
+                if (!desResourceDir.exists()) if (!desResourceDir.mkdirs()) {
+                    log.error("无法保存插件" + plugin.getName() + "的资源文件：" + file + "！");
+                    return;
+                }
+                if (!desResourceFile.createNewFile()) {
+                    log.error("无法保存插件" + plugin.getName() + "的资源文件：" + file + "！");
+                    return;
+                }
+                FileOutputStream configFileOS = new FileOutputStream(desResourceFile);
+                configFileOS.write(resResourceIS.readAllBytes());
+                configFileOS.close();
+                config.load(resResourceIS);
+                resResourceIS.close();
+            }
+        } catch (IOException e) {
+            log.error("无法保存插件" + plugin.getName() + "的资源文件：" + file + "！", e);
         }
     }
 

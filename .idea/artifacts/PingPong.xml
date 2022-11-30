@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="PingPong">
-    <output-path>$PROJECT_DIR$/out/artifacts/AuroraBot_jar/plugins</output-path>
-    <root id="archive" name="PingPong.jar">
-      <element id="module-test-output" name="AuroraBot" />
-    </root>
-  </artifact>
-</component>

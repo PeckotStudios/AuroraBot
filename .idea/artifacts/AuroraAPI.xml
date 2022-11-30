@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="AuroraAPI">
+    <output-path>$PROJECT_DIR$/AuroraCore/out/AuroraAPI</output-path>
+    <root id="archive" name="AuroraAPI.jar">
+      <element id="module-output" name="AuroraCore" />
+    </root>
+  </artifact>
+</component>

@@ -1,9 +1,9 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="AuroraBot:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/AuroraBot_jar</output-path>
+  <artifact type="jar" build-on-make="true" name="AuroraBot">
+    <output-path>$PROJECT_DIR$/AuroraCore/out/AuroraBot</output-path>
     <root id="archive" name="AuroraBot.jar">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/AuroraCore/src/META-INF/MANIFEST.MF" />
       </element>
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/2.0.4/slf4j-api-2.0.4.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.4.5/logback-core-1.4.5.jar" path-in-jar="/" />
@@ -21,8 +21,8 @@
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/13.0/annotations-13.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/java-websocket/Java-WebSocket/1.5.3/Java-WebSocket-1.5.3.jar" path-in-jar="/" />
-      <element id="module-output" name="AuroraBot" />
-      <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources" />
+      <element id="module-output" name="AuroraCore" />
+      <element id="dir-copy" path="$PROJECT_DIR$/AuroraCore/src/main/resources" />
     </root>
   </artifact>
 </component>

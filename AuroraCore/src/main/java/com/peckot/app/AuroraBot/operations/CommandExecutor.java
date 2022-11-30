@@ -19,8 +19,16 @@ public class CommandExecutor {
     public static void stop() { flag = false; }
 
     public CommandExecutor() {
+        boolean arrow = false;
         while (flag) {
-            if (scanner.hasNextLine()) executeCommand(scanner.nextLine());
+            if (arrow) {
+                System.out.print("> ");
+                arrow = false;
+            }
+            if (scanner.hasNextLine()) {
+                executeCommand(scanner.nextLine());
+                arrow = true;
+            }
         }
     }
 
@@ -118,11 +126,14 @@ public class CommandExecutor {
                             }
                             else try {
                                 Plugin plugin = Aurora.getPluginManager().getPlugin(args[2]);
-                                if (null != plugin) Aurora.getPluginManager().unload(plugin);
-                                Aurora.getPluginManager().load(args[2]);
-                                plugin = Aurora.getPluginManager().getPlugin(args[2]);
-                                if (null != plugin) log.info("已成功重载插件：{}", plugin.getName());
-                                else log.warn("插件重载失败！");
+                                if (null == plugin) {
+                                    log.warn("插件{}尚未加载！", args[2]);
+                                    return;
+                                } else {
+                                    plugin.getService().onDisable();
+                                    plugin.getService().onEnable();
+                                    log.info("已成功重载插件：{}", plugin.getName());
+                                }
                             } catch (PluginFileNotFoundException e) {
                                 log.warn("未找到文件列表中的插件：{}", args[2], e);
                             }

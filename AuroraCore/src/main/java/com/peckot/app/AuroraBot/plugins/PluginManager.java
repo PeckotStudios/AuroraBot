@@ -69,7 +69,7 @@ public final class PluginManager {
     public void load(@NotNull String pluginName) throws PluginAlreadyLoadedException, PluginFileNotFoundException {
         log.debug("接收到单个插件加载事件：{}", pluginName);
         Plugin plugin = getPlugin(pluginName);
-        if (null != plugin) {
+        if (loadedPluginList.contains(plugin)) {
             log.debug("插件{}加载失败：插件已加载完毕！", plugin.getName());
             throw new PluginAlreadyLoadedException(plugin);
         } else {
@@ -106,7 +106,7 @@ public final class PluginManager {
     public void unload(@NotNull String pluginName) throws PluginLoadedNotFoundException {
         log.debug("接收到单个插件卸载事件：{}", pluginName);
         Plugin plugin = getPlugin(pluginName);
-        if (null != plugin) {
+        if (loadedPluginList.contains(plugin)) {
             log.debug("正在卸载：{}", plugin.getName());
             plugin.getService().onDisable();
             log.debug("插件{}卸载成功！", plugin.getName());
