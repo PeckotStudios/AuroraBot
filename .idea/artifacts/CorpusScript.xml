@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="CorpusScript">
+    <output-path>$PROJECT_DIR$/AuroraCore/out/AuroraBot/plugins</output-path>
+    <root id="archive" name="CorpusScript.jar">
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/graalvm/js/js/22.3.0/js-22.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/graalvm/regex/regex/22.3.0/regex-22.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/graalvm/sdk/graal-sdk/22.3.0/graal-sdk-22.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/graalvm/truffle/truffle-api/22.3.0/truffle-api-22.3.0.jar" path-in-jar="/" />
+      <element id="module-output" name="CorpusScript" />
+      <element id="dir-copy" path="$PROJECT_DIR$/AuroraOfficialPlugins/CorpusScript/src/main/resources" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/ibm/icu/icu4j/71.1/icu4j-71.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
