@@ -12,6 +12,10 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+/**
+ * AuroraBot的软件实例主类,提供了部分软件的流程操作方法.
+ * @author Pectics
+ * */
 public final class Aurora {
 
     private static final Logger log = LoggerFactory.getLogger(Aurora.class);
@@ -22,7 +26,11 @@ public final class Aurora {
     private static Thread executor;
     private static boolean exitFlag = false;
 
-    public static void startBot() {
+    /**
+     * 初始化并启动AuroraBot实例.
+     * @author Pectics
+     * */
+    public static void load() {
         log.debug("初始化常量内容...");
         log.debug("常量池实例对象：{}", new Const());
         AccessInfo accessInfo = new AccessInfo();
@@ -39,7 +47,8 @@ public final class Aurora {
                 Intent.GUILDS,
                 Intent.GUILD_MEMBERS,
                 Intent.GUILD_MESSAGE_REACTIONS,
-                Intent.DIRECT_MESSAGE
+                Intent.DIRECT_MESSAGE,
+                Intent.AUDIO_ACTION
         };
         log.debug("进行机器人权限申请，权限列表：{}",
                 Arrays.stream(intents).map(Intent::toString).collect(Collectors.joining(", ")));
@@ -59,6 +68,10 @@ public final class Aurora {
         }
     }
 
+    /**
+     * 重新启动AuroraBot程序.
+     * @author Pectics
+     * */
     public static void reload() {
         log.debug("重新加载程序...");
         try {
@@ -75,13 +88,14 @@ public final class Aurora {
             currentGroup.enumerate(threads);
             Arrays.stream(threads).filter(t -> t.getName().equals("WebSocket")).forEach(Thread::interrupt);
             log.debug("正在重新启动程序...");
-            startBot();
+            load();
         })).setName("AuroraBot");
         thread.start();
     }
 
     /**
-     * 主方法
+     * AuroraBot主方法.
+     * @author Pectics
      */
     public static void main(String[] args) {
         log.debug("初始化主线程...");
@@ -89,7 +103,7 @@ public final class Aurora {
         log.info("欢迎使用AuroraBot！");
         (executor = new Thread(CommandExecutor::new)).setName("Executor");
         log.debug("主线程开始运行...");
-        startBot();
+        load();
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             Thread.currentThread().setName("ExitThread");
             log.info("AuroraBot正在停止...");
@@ -107,14 +121,29 @@ public final class Aurora {
         }
     }
 
+    /**
+     * 获取AuroraBot的PluginManager插件管理器实例.
+     * @return {@link PluginManager} 插件管理器实例
+     * @author Pectics
+     * */
     public static PluginManager getPluginManager() {
         return pluginManager;
     }
 
+    /**
+     * 获取AuroraBot的Logger日志工具实例.
+     * @return {@link Logger} 日志工具实例
+     * @author Pectics
+     * */
     public static Logger getLogger() {
         return log;
     }
 
+    /**
+     * 获取AuroraBot的ApiManager操作接口.
+     * @return {@link ApiManager} 操作接口
+     * @author Pectics
+     * */
     public static ApiManager getApi() {
         return api;
     }

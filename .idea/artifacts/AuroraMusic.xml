@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="AuroraMusic">
+    <output-path>$PROJECT_DIR$/AuroraCore/out/AuroraBot/plugins</output-path>
+    <root id="archive" name="AuroraMusic.jar">
+      <element id="module-output" name="AuroraMusic" />
+      <element id="dir-copy" path="$PROJECT_DIR$/AuroraOfficialPlugins/AuroraMusic/src/main/resources" />
+    </root>
+  </artifact>
+</component>

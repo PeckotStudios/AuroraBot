@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>CorpusScript</name>
+    <name>AuroraMusic</name>
     <groupId>com.peckot.app.AuroraBot.plugin</groupId>
-    <artifactId>CorpusScript</artifactId>
+    <artifactId>AuroraMusic</artifactId>
     <version>1.1a</version>
 
     <properties>
@@ -16,27 +16,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.11.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.graalvm.js</groupId>
-            <artifactId>js</artifactId>
-            <version>22.3.0</version>
-        </dependency>
-        <dependency>
             <groupId>com.peckot.app</groupId>
             <artifactId>AuroraBot</artifactId>
             <version>1.1a</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
-    
+
 </project>

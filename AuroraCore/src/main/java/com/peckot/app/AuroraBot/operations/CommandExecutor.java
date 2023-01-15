@@ -10,6 +10,10 @@ import org.slf4j.Logger;
 
 import java.util.Scanner;
 
+/**
+ * AuroraBot控制台的指令处理类
+ * @author Pectics
+ * */
 public class CommandExecutor {
 
     private static final Logger log = Aurora.getLogger();
@@ -32,7 +36,7 @@ public class CommandExecutor {
         }
     }
 
-    public void executeCommand(String command) {
+    private void executeCommand(String command) {
         String[] args = command.split(" ");
         switch (args[0]) {
             case "help":

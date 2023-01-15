@@ -1,6 +1,7 @@
 package com.peckot.app.AuroraBot.plugin.CorpusScript.corpus;
 
 import com.peckot.app.AuroraBot.Aurora;
+import com.peckot.app.AuroraBot.utils.Webs;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import me.zhenxin.qqbot.entity.Message;
@@ -57,17 +58,17 @@ public class JSCorpus {
         this(name, FileUtils.readFileToString(jsFile, "utf-8"));
     }
 
-    private void bindObjects(Value binder, Message message) {
+    private void bindObjects(Value binder) {
         binder.putMember("Logger", log);
         binder.putMember("API", Aurora.getApi());
-        binder.putMember("Message", message);
+        binder.putMember("Web", Webs.getInstance());
     }
 
     public void runAction(Message message)  {
         log.warn("尝试执行：" + name);
         try (Context context = Context.newBuilder("js").allowAllAccess(true).build()) {
-            bindObjects(context.getBindings("js"), message);
-            context.eval("js", jsCode).execute();
+            bindObjects(context.getBindings("js"));
+            context.eval("js", jsCode).execute(message);
         }
     }
 

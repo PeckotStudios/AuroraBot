@@ -24,8 +24,6 @@ public class JSCorpusRunner extends EventHandler {
 
     public JSCorpusRunner(CorpusScript plugin) {
         this.plugin = plugin;
-        System.setProperty("-Dpolyglot.log.file", new File(plugin.getPluginDir(), "logs.txt").getPath());
-        System.setProperty("-Dpolyglot.engine.WarnInterpreterOnly", "false");
         loadCorpusList();
     }
 

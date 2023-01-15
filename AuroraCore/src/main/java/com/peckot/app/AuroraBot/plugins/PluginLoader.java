@@ -17,18 +17,22 @@ import java.util.*;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 
-public class PluginLoader {
+/**
+ * AuroraBot的插件读取器.
+ * @author Pectics
+ * */
+public final class PluginLoader {
 
     private static final Logger log = Aurora.getLogger();
     private static final File parentDir = new File("plugins");
 
     /**
-     * 遍历插件文件夹并加载单个插件
+     * 遍历插件文件夹并读取单个插件.
      * @param pluginName 插件名称
-     * @return 插件实例
+     * @return {@link Plugin} 读取到的插件实例
      * */
     @Nullable
-    protected static Plugin load(@NotNull String pluginName) throws PluginFileNotFoundException {
+    static Plugin load(@NotNull String pluginName) throws PluginFileNotFoundException {
         File[] files = parentDir.listFiles();
         // 插件目录为空
         if (null == files || files.length == 0) throw new PluginFileNotFoundException(pluginName);
@@ -65,11 +69,11 @@ public class PluginLoader {
     }
 
     /**
-     * 遍历插件目录，读取插件并返回插件实例列表
-     * @return 可用插件实例列表
+     * 遍历插件目录，读取插件并返回插件实例列表.
+     * @return {@link List} 读取到的插件实例列表
      */
     @NotNull
-    protected static List<Plugin> loadAll() {
+    static List<Plugin> loadAll() {
         List<Plugin> plugins = new ArrayList<>();
         // 获取插件目录下所有文件
         File[] files = parentDir.listFiles();
@@ -106,8 +110,9 @@ public class PluginLoader {
     }
 
     /**
-     * 从插件jar包中读取properties到Plugin类
-     * @param path jar 相对路径
+     * 从插件jar包中读取properties到Plugin类.
+     * @param path 插件jar文件的相对路径
+     * @return {@link Plugin} 读取到的插件实例
      */
     @NotNull
     private static Plugin readPlugin(String path) throws IOException, ReflectiveOperationException, PluginPropertiesNotFoundException {
