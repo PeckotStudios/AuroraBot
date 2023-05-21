@@ -40,5 +40,5 @@ java -jar AuroraBot.jar
 
 ## 📝 开源许可
 
-Copyright © 2022 [Peckot Studios](https://peckot.com). All rights reserved.<br />
+Copyright © 2021-2023 [Peckot Studios](https://peckot.com). All rights reserved.<br />
 [AuroraBot](https://github.com/Peckot-Studios/AuroraBot) is [MIT](https://mit-license.org/) licensed.
